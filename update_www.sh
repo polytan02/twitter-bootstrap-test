@@ -18,11 +18,22 @@ script=[${txtpur}SCRIPT${txtrst}];
 sources=/home/maxbilh/git/twitter-bootstrap-test/bootstrap;
 dest=/var/www/webapp_maxtest/site;
 
-echo -e "$ok Dossier sources : $sources";
-echo -e "$ok Dossier destination : $dest";
-
 echo -e "\n$script Copie des fichiers vers www/site \n";
-read -e -p "On continue ? ? (yn) : " -i "y" s1;
+
+read -e -p "git pull avant copie ? (yn) : " -i "y" s1;
+if [ $s1 == 'y' ];
+        then git pull
+        echo -e "\n$ok git pull terminé...\n";
+        else echo -e "\nOk, on ne fait rien\n";
+        read -e -p "Presser \" entrée \"...  ";
+fi;
+
+
+
+echo -e "$ok Dossier sources : $sources";
+echo -e "$ok Dossier destination : $dest\n";
+
+read -e -p "On copie les fichiers ? ? (yn) : " -i "y" s1;
 if [ $s1 == 'y' ];
         then sudo rm -rf $dest/*;
         sudo cp -av $sources/* $dest/;

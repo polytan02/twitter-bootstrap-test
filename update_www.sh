@@ -14,15 +14,15 @@ ok=[${txtgrn}OK${txtrst}];
 info=[${txtcyn}INFO${txtrst}];
 script=[${txtpur}SCRIPT${txtrst}];
 
-myuser=$(whoami)
-sources=/home/$user/git/twitter-bootstrap-test/bootstrap;
+myuser=$(whoami);
+sources=/home/$myuser/git/twitter-bootstrap-test/bootstrap;
 dest=/var/www/webapp_maxtest/site;
 
 echo -e "\n$script Copie des fichiers vers www/site \n";
 
 read -e -p "git pull avant copie ? (yn) : " -i "y" s1;
 if [ $s1 == 'y' ];
-        then git pull
+        then echo -e "\n"; git pull
         echo -e "\n$ok git pull terminé...\n";
         else echo -e "\nOk, on ne fait rien\n";
         read -e -p "Presser \" entrée \"...  ";
@@ -38,7 +38,7 @@ if [ $s1 == 'y' ];
         then sudo rm -rf $dest/*;
         sudo cp -av $sources/* $dest/;
         sudo chown -vR maxbilh:www-data $dest;
-        echo -e "\n$ok Copie terminée...";
+        echo -e "\n$ok Copie terminée...\n";
         else echo -e "\nOk, on ne fait rien\n";
         read -e -p "Presser \" entrée \"...  ";
 fi;

@@ -14,8 +14,8 @@ ok=[${txtgrn}OK${txtrst}];
 info=[${txtcyn}INFO${txtrst}];
 script=[${txtpur}SCRIPT${txtrst}];
 
-
-sources=/home/maxbilh/git/twitter-bootstrap-test/bootstrap;
+myuser=$(whoami)
+sources=/home/$user/git/twitter-bootstrap-test/bootstrap;
 dest=/var/www/webapp_maxtest/site;
 
 echo -e "\n$script Copie des fichiers vers www/site \n";
